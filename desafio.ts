@@ -41,27 +41,30 @@ console.log(`Area = ${r1.area()}`)
  
 //%* Exercício 3 - Getters & Setters
 
-var estagiario = {
-    _primeiroNome: ''
-}
- 
-Object.defineProperty(estagiario, 'primeiroNome', {
-    get: function () {
+class Estagiario {
+    private _primeiroNome: string =  ''
+
+    public get primeiroNome() : string {
         return this._primeiroNome
-    },
-    set: function (valor) {
-        if (valor.length >= 3) {
-            this._primeiroNome = valor
+    }
+
+    public set primeiroNome(v : string) {
+        if(v.length >= 3) {
+            this._primeiroNome = v
         } else {
             this._primeiroNome = ''
         }
-    },
-    enumerable: true,
-    configurable: true
-})
- 
-console.log(estagiario.primeiroNome)
-estagiario.primeiroNome = 'Le'
-console.log(estagiario.primeiroNome)
-estagiario.primeiroNome = 'Leonardo'
-console.log(estagiario.primeiroNome)
+    }
+}
+
+const est1: Estagiario = new Estagiario
+
+console.log(est1.primeiroNome)
+est1.primeiroNome = 'Le'
+console.log(est1.primeiroNome)
+
+est1.primeiroNome = 'Leoni'
+console.log(est1.primeiroNome)
+
+est1.primeiroNome = 'Leonardo'
+console.log(est1.primeiroNome)
