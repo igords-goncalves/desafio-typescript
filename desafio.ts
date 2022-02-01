@@ -21,18 +21,23 @@ console.log(moto.velocidade)
  
 //%* Exercício 2 - Herança
 
-var objeto2D = {
-    base: 0,
-    altura: 0
+class Objeto2D {
+    constructor (
+        public base: number =  0,
+        public altura: number =  0) {
+    }
 }
  
-var retangulo = Object.create(objeto2D)
-retangulo.base = 5
-retangulo.altura = 7
-retangulo.area = function() {
-    return this.base * this.altura
+class Retangulo extends Objeto2D {
+    constructor() {
+        super(5, 7)
+    }
+    public area = (): number => {
+        return this.base * this.altura
+    }
 }
-console.log(retangulo.area())
+const r1: Retangulo = new Retangulo
+console.log(`Area = ${r1.area()}`)
  
 //%* Exercício 3 - Getters & Setters
 
