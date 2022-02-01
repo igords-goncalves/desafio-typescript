@@ -1,19 +1,19 @@
 //%* Exercício 1 - Classe
 
-function Moto(nome) {
-    this.nome = nome
-    this.velocidade = 0
- 
-    this.buzinar = function() {
+class Moto {
+    constructor(
+        public nome: string,
+        public velocidade: number = 0) {
+    }
+    public buzinar = (): void => {
         console.log('Toooooooooot!')
     }
- 
-    this.acelerar= function(delta) {
-        this.velocidade = this.velocidade + delta
+    public acelerar = (delta: number): number => {
+        return this.velocidade = this.velocidade + delta
     }
 }
  
-var moto = new Moto('Ducati')
+const moto: Moto = new Moto('Ducati')
 moto.buzinar()
 console.log(moto.velocidade)
 moto.acelerar(30)
